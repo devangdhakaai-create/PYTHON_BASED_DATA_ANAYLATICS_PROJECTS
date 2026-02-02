@@ -22,17 +22,22 @@ print("\n Guess The Secret Word")
 
 while True:
     guess = input("Enter Your Guess: ").lower()
+    
+    if guess == "exit":
+        print("Thanks for playing! Game Over")
+        break
+    
     attempts += 1
 
     if guess == secret:
         print(f"Congretulations! You Guessed The Word In {attempts} Attempts")
+        break
     
     hint=""
     for i in range(len(secret)):
-        if i < len(guess) and guess[i] == secret:
+        if i < len(guess) and guess[i] == secret[i]:
             hint += guess[i]
-
-        else:
-            hint += "_"
+    else:
+        hint += "_"
     print("Hint: ", hint)
 print("Game Over")
